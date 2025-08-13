@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f6f5;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6f61;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    color: #ff6f61;
+}
+
+.hero {
+    background: linear-gradient(135deg, #ff6f61, #ff8a80);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero .cta-btn {
+    background-color: #fff;
+    color: #ff6f61;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero .cta-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filters button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.filters button:hover,
+.filters button.active {
+    background-color: #ff6f61;
+    color: white;
+    border-color: #ff6f61;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.product h3 {
+    font-size: 20px;
+    padding: 15px;
+}
+
+.product p {
+    padding: 0 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.product .price {
+    font-size: 18px;
+    color: #ff6f61;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.product a {
+    display: block;
+    margin: 15px;
+}
+
+.product .buy-btn,
+form button,
+.btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.product .buy-btn:hover,
+form button:hover,
+.btn:hover {
+    background-color: #e65b50;
+}
+
+.product-detail,
+.container form,
+.confirmation {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-detail h2,
+.container h2 {
+    font-size: 28px;
+    margin: 20px 0;
+    color: #ff6f61;
+}
+
+.product-detail p,
+.container p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.product-detail .price {
+    font-size: 24px;
+    color: #ff6f61;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #ff6f61;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .container,
+    .product-detail {
+        margin: 20px;
+    }
+}

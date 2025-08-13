@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xava kolomo - Catálogo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">xava kolomo</div>
+            <nav>
+                <a href="{{ url_for('index') }}">Início</a>
+                <a href="{{ url_for('about') }}">Sobre</a>
+                <a href="{{ url_for('contact') }}">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Aprenda com os Melhores Cursos e Ebooks</h1>
+        <p>Desenvolva suas habilidades em tecnologia, marketing e design!</p>
+        <a href="#products" class="cta-btn">Explorar Cursos</a>
+    </section>
+
+    <div class="container" id="products">
+        <div class="filters">
+            <button onclick="filterProducts('all')" class="active">Todos</button>
+            <button onclick="filterProducts('Front-end')">Front-end</button>
+            <button onclick="filterProducts('Back-end')">Back-end</button>
+            <button onclick="filterProducts('Marketing')">Marketing</button>
+            <button onclick="filterProducts('Design')">Design</button>
+        </div>
+
+        <div class="products">
+            {% for produto in produtos %}
+            <div class="product" data-category="{{ produto.categoria }}">
+                <!-- Apenas imagem online -->
+                <img src="{{ produto.imagem }}" alt="{{ produto.nome }}">
+                <h3>{{ produto.nome }}</h3>
+                <p>{{ produto.descricao }}</p>
+                <div class="price">{{ produto.preco }}</div>
+                <a href="{{ url_for('product', id=produto.id) }}" class="buy-btn">Ver Detalhes</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Anselmo Trade. Todos os direitos reservados.</p>
+        <p><a href="https://wa.me/258845462448">WhatsApp: +258 845 462 448</a> | <a href="mailto:anselmotrade3@gmail.com">anselmotrade3@gmail.com</a></p>
+    </footer>
+
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product');
+            const buttons = document.querySelectorAll('.filters button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            products.forEach(product => {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.classList.remove('hidden');
+                } else {
+                    product.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

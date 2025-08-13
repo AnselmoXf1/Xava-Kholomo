@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação - Anselmo Trade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Anselmo Trade</div>
+            <nav>
+                <a href="{{ url_for('index') }}">Início</a>
+                <a href="{{ url_for('about') }}">Sobre</a>
+                <a href="{{ url_for('contact') }}">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container confirmation">
+        <h2>Pedido Confirmado!</h2>
+        <p>Obrigado por sua compra! Você será contatado em breve pelo WhatsApp (+258 845 462 448) para combinar o pagamento via M-Pesa ou outra forma.</p>
+        <p>Após a confirmação do pagamento, o curso ou ebook será enviado para o seu email ou via link privado no Google Drive.</p>
+        <p>Qualquer dúvida, entre em contato: <a href="https://wa.me/258845462448">WhatsApp</a> | <a href="mailto:anselmotrade3@gmail.com">anselmotrade3@gmail.com</a></p>
+        <a href="{{ mensagem }}" class="btn">Ir para o WhatsApp</a>
+        <a href="{{ url_for('index') }}" class="btn">Voltar ao Início</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Anselmo Trade. Todos os direitos reservados.</p>
+        <p><a href="https://wa.me/258845462448">WhatsApp: +258 845 462 448</a> | <a href="mailto:anselmotrade3@gmail.com">anselmotrade3@gmail.com</a></p>
+    </footer>
+</body>
+</html>
