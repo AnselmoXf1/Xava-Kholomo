@@ -84,25 +84,37 @@ def contact():
     return render_template('contact.html')
 
 # Página de Checkout (manual)
+# Página de Checkout (manual)
 @app.route('/checkout/<int:id>', methods=['GET', 'POST'])
 def checkout(id):
     produto = next((p for p in produtos if p['id'] == id), None)
     if not produto:
         return "Produto não encontrado", 404
+
     if request.method == 'POST':
         nome = request.form['name']
         email = request.form['email']
         whatsapp = request.form['whatsapp']
         mensagem = f"Olá, Anselmo! Quero comprar o {produto['nome']} por {produto['preco']}. Nome: {nome}, Email: {email}, WhatsApp: {whatsapp}"
+        
+        # Codifica a mensagem
         encoded_message = urllib.parse.quote(mensagem)
-        return redirect(f"/confirmation?message={encoded_message}")
+
+        # Monta o link completo para o WhatsApp
+        whatsapp_link = f"https://wa.me/258845462448?text={encoded_message}"
+
+        # Redireciona para a página de confirmação com o link pronto
+        return redirect(f"/confirmation?whatslink={urllib.parse.quote(whatsapp_link)}")
+
     return render_template('checkout.html', produto=produto)
+
 
 # Página de Confirmação
 @app.route('/confirmation')
 def confirmation():
-    mensagem = request.args.get('message', '')
-    return render_template('confirmation.html', mensagem=mensagem)
+    whatslink = request.args.get('whatslink', '')
+    return render_template('confirmation.html', whatslink=whatslink)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
